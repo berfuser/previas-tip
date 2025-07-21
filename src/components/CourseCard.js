@@ -102,7 +102,7 @@ const CourseCard = ({ course, courseApproved, examApproved, onToggleCourseApprov
             {course.id} - {course.name}
           </h3>
           <p className="text-gray-600 text-sm mb-2">{course.description}</p>
-          <div className="flex items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 mt-2">
             <span className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
               {course.credits} créditos
@@ -114,6 +114,11 @@ const CourseCard = ({ course, courseApproved, examApproved, onToggleCourseApprov
             <span className="bg-gray-100 px-2 py-1 rounded-full text-xs">
               {course.category}
             </span>
+            {course.tag && (
+              <span className={`px-2 py-1 rounded-full text-xs font-semibold ${course.tag === 'Obligatorio' ? 'bg-blue-100 text-blue-800' : 'bg-pink-100 text-pink-800'}`}>
+                {course.tag}
+              </span>
+            )}
           </div>
         </div>
         <div className="flex items-center gap-2">
